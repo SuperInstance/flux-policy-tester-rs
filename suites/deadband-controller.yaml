@@ -1,0 +1,45 @@
+# Suite: deadband-controller
+# A temperature deadband controller policy.
+
+suite: deadband-controller
+policy: null
+
+tests:
+  - name: "comfortable temperature"
+    input: {temperature: 70}
+    expected: {action: 0}
+    description: "70°F is in the deadband, should idle"
+
+  - name: "slightly warm"
+    input: {temperature: 72}
+    expected: {action: 0}
+    description: "72°F still in deadband"
+
+  - name: "above threshold"
+    input: {temperature: 80}
+    expected: {action: 1}
+    description: "80°F > 75°F threshold, should cool"
+
+  - name: "boundary: exactly 75"
+    input: {temperature: 75}
+    expected: {action: 0}
+    description: "75°F is boundary-inclusive, should idle"
+
+adversarial:
+  - name: "extreme high"
+    input: {temperature: 99999}
+    description: "Extreme heat should not crash"
+
+  - name: "zero temperature"
+    input: {temperature: 0}
+    description: "Zero is well below threshold"
+
+conservation:
+  max_budget: 1000
+  max_steps: 10000
+
+fuzz:
+  input_ranges:
+    temperature: [-273, 1000]
+  iterations: 5000
+  seed: 12345
