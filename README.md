@@ -166,6 +166,14 @@ block:
 
 Supported pseudo-instructions: `JGE`, `JGT`, `JLE`, `JLT`
 
+## Cross-Implementation
+
+This component exists in two languages:
+- **Python** (`pip install flux-policy-tester`) — [SuperInstance/flux-policy-tester](https://github.com/SuperInstance/flux-policy-tester)
+- **Rust** (`cargo add flux-policy-tester`) — [SuperInstance/flux-policy-tester-rs](https://github.com/SuperInstance/flux-policy-tester-rs)
+
+Both implement the same specification. Choose based on your runtime.
+
 ## Ecosystem
 
 ### FLUX Runtime
