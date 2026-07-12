@@ -1,0 +1,37 @@
+# Suite: budget-tracker
+# Tests a conservation policy that enforces an output length budget.
+
+suite: budget-tracker
+policy: null
+
+tests:
+  - name: "short output within budget"
+    input: "What is AI?"
+    expected: {action: 0}
+    description: "Short answer is within budget"
+
+  - name: "empty output"
+    input: "question"
+    expected: {action: 0}
+    description: "Empty output is trivially within budget"
+
+adversarial:
+  - name: "extremely long output"
+    input: "Write a book"
+    expected: {action: 1}
+    description: "Book-length output should trigger block"
+
+  - name: "empty input and output"
+    input: ""
+    expected: {action: 0}
+    description: "Both empty — should handle gracefully"
+
+conservation:
+  max_budget: 500
+  max_steps: 50000
+
+fuzz:
+  output_text_length: [0, 5000]
+  budget_range: [10, 2000]
+  iterations: 3000
+  seed: 42
