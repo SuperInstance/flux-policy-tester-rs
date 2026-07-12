@@ -1,0 +1,22 @@
+[package]
+name = "flux-policy-tester"
+version = "0.1.0"
+edition = "2021"
+authors = ["SuperInstance"]
+description = "Testing framework for FLUX bytecode agent policies — verify behavior, fuzz edge cases, enforce conservation bounds"
+license = "MIT"
+repository = "https://github.com/SuperInstance/flux-policy-tester-rs"
+homepage = "https://github.com/SuperInstance/flux-policy-tester-rs"
+readme = "README.md"
+keywords = ["flux", "vm", "policy", "testing", "fuzzing"]
+categories = ["development-tools::testing", "virtualization"]
+
+[dependencies]
+fluxvm = "0.1"
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
+rand = "0.8"
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+tempfile = "3"
