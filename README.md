@@ -4,6 +4,10 @@
 
 A Rust implementation of the [FLUX Policy Tester](https://github.com/SuperInstance/flux-policy-tester), providing unit tests, property-based tests, and fuzz tests for FLUX bytecode policies.
 
+## Philosophy
+
+Part of [Working Animal Architecture](https://github.com/SuperInstance/AI-Writings), where **γ + η = C** (genome + nurture = capability). The policy tester is the **training ground** — where working animals prove they can work within the fence before being released to pasture. Every policy is stress-tested, fuzzed, and verified against conservation bounds. A working dog that can't pass the training ground doesn't go to work.
+
 ## What Is This?
 
 This crate lets you write comprehensive tests for FLUX bytecode policies — the conservation laws and agent guardrails that run on the FLUX VM. Ensure your policies behave correctly under all conditions, including adversarial inputs and edge cases.
